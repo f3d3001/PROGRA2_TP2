@@ -1345,7 +1345,6 @@ MonoBehaviour:
   disparoJugador: {fileID: 1614091741}
   posicionDisparo: {fileID: 1167621319}
   velocidad: 10
-  canvas: {fileID: 0}
 --- !u!114 &1167621321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1657,8 +1656,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 161.8, y: -28.5}
-  m_SizeDelta: {x: 287.55737, y: 25.644104}
+  m_AnchoredPosition: {x: 219.66881, y: -28.5}
+  m_SizeDelta: {x: 403.295, y: 25.6441}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1476702132
 MonoBehaviour:
@@ -1769,8 +1768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef25c0c859855e49a770ff0d1bcb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigosRestantes: 8
-  textoContadorEnemigos: 
+  enemigosRestantes: 0
+  textoContadorEnemigos: {fileID: 1476702132}
 --- !u!1 &1614091741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9040639631055949466, guid: 65f7f022a1765e94a84d59af745c00bd, type: 3}

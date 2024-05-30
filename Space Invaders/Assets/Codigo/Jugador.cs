@@ -12,8 +12,7 @@ public class Jugador : MonoBehaviour
     public Transform posicionDisparo;
     public float velocidad = 10f;
     private Camera mainCamera;
-    public GameObject canvas;
-
+    
 
     void Start()
     {
@@ -25,12 +24,12 @@ public class Jugador : MonoBehaviour
 
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0f) * velocidad * Time.deltaTime;
+        Vector3 movimiento = new Vector3(moveHorizontal, 0f) * velocidad * Time.deltaTime;
 
         Vector3 minViewportBordes = mainCamera.ViewportToWorldPoint(new Vector3(0, 0));
         Vector3 maxViewportBordes = mainCamera.ViewportToWorldPoint(new Vector3(1, 1));
 
-        Vector3 newPosition = transform.position + movement;
+        Vector3 newPosition = transform.position + movimiento;
         newPosition.x = Mathf.Clamp(newPosition.x, minViewportBordes.x, maxViewportBordes.x);
 
         transform.position = newPosition;

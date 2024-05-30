@@ -8,21 +8,32 @@ public class Enemigo : MonoBehaviour
     public Transform puntoDisparo;
     public float intervaloMinDisparo = 1f;
     public float intervaloMaxDisparo = 5f;
+    private float proximoDisparo;
     ContadorEnemigos contadorEnemigos;
+
+
 
     private void Start()
     {
-        StartCoroutine(DispararMisiles());
+        ReiniciarTiempo();
+        contadorEnemigos = GameObject.FindObjectOfType<ContadorEnemigos>();
+
     }
 
-    private IEnumerator DispararMisiles()
+    private void FixedUpdate()
     {
-        while (true)
+        proximoDisparo -= Time.deltaTime;
+
+        if (proximoDisparo <= 0f)
         {
-            float intervaloDisparo = Random.Range(intervaloMinDisparo, intervaloMaxDisparo);
-            yield return new WaitForSeconds(intervaloDisparo);
             DispararMisil();
+            ReiniciarTiempo();
         }
+    }
+
+    private void ReiniciarTiempo()
+    {
+        proximoDisparo = Random.Range(intervaloMinDisparo, intervaloMaxDisparo);
     }
 
     private void DispararMisil()
@@ -32,20 +43,13 @@ public class Enemigo : MonoBehaviour
         disparo.GetComponent<DisparoEnemigo>().Inicializar(Vector2.down); 
     }
   
-    private void OnDestroy()
-    {
-        if (contadorEnemigos != null)
-        {
-            contadorEnemigos.EnemigoDestruido();
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D colision)
     {
         if (colision.gameObject.CompareTag("DisparoJugador"))
         {
             Destroy(colision.gameObject);
             Destroy(gameObject);
+            contadorEnemigos.EnemigoDestruido();
         }
     }
 

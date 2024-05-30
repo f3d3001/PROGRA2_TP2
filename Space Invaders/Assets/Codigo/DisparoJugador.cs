@@ -12,7 +12,7 @@ public class DisparoJugador : MonoBehaviour
         direccion = direccionInicial;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.Translate(direccion * velocidad * Time.deltaTime);
     }

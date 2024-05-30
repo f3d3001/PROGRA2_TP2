@@ -9,10 +9,10 @@ using UnityEngine.UI;
 public class ContadorEnemigos : MonoBehaviour
 {
     public int enemigosRestantes;
-    public Text textoContadorEnemigos;
+    public TMPro.TMP_Text textoContadorEnemigos;
 
 
-    private void Start()
+    private void FixedUpdate() 
     {
         enemigosRestantes = GameObject.FindGameObjectsWithTag("Enemigo").Length;
         ActualizarContadorEnemigos();
